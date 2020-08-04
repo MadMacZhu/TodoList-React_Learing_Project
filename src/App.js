@@ -1,24 +1,38 @@
 import React from 'react';
-import logo from './logo.svg';
+import Navbar from './components/Navbar';
+import TodoList from './components/TodoList';
+import ContactCard from './components/ContactCard';
+import productData from './components/productData';
+import Product from './components/Product';
+import Person from './components/Person';
+import Login from './components/Login';
+//import MainContent from './components/MainContent';
+//import Footer from './components/Footer';
 import './App.css';
 
 function App() {
+  const date = new Date();
+
+  const productComponents = productData.map(item => <Product
+                                            key={item.id}
+                                            product={item}/>);
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Navbar />
+      <TodoList />
+      <p>Now is {date.getHours()}</p>
+      <ContactCard 
+        name = "Mr. Wiskerson"
+        imgUrl = "http://placekitten.com/400/200"
+        phone = "(212) 555-1234"
+        email = "mr.whiskaz@catnap.meow"
+      />
+      {productComponents}
+      <Person />
+      <Login />
+      <button onClick={() => console.log("Clicked")}> Click me!
+        </button>
     </div>
   );
 }
