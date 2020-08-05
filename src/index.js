@@ -2,10 +2,12 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 //import App from './App';
 import TodoApp from './TodoApp';
-import Login from './components/Login'
+import Login from './components/Login';
+import FetchAPI from './components/FetchAPI';
+import Form from './components/Form';
 
 ReactDOM.render(
-	< TodoApp />,
+	< Form />,
   document.getElementById('root')
 );
 
